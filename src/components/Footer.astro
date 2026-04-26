@@ -1,0 +1,54 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="border-t py-12 mt-20">
+  <div class="container">
+    <div class="flex flex-col md:flex-row justify-between gap-8">
+      <div class="flex flex-col gap-4">
+        <a href="/" class="text-2xl font-bold">
+          <span class="text-primary">Escolha</span>Oferta
+        </a>
+        <p class="text-sm opacity-60 max-w-sm">
+          Sua fonte confiável para as melhores ofertas de ferramentas e equipamentos 
+          da internet. Economize tempo e dinheiro conosco.
+        </p>
+      </div>
+      
+      <div class="flex gap-16">
+        <div class="flex flex-col gap-4">
+          <h4 class="font-bold">Links Úteis</h4>
+          <ul class="flex flex-col gap-2 text-sm opacity-70">
+            <li><a href="/" class="hover:text-primary">Início</a></li>
+            <li><a href="/sobre" class="hover:text-primary">Sobre Nós</a></li>
+            <li><a href="#ofertas" class="hover:text-primary">Ofertas</a></li>
+          </ul>
+        </div>
+        
+        <div class="flex flex-col gap-4">
+          <h4 class="font-bold">Legal</h4>
+          <ul class="flex flex-col gap-2 text-sm opacity-70">
+            <li><a href="#" class="hover:text-primary">Privacidade</a></li>
+            <li><a href="#" class="hover:text-primary">Cookies</a></li>
+            <li><a href="#" class="hover:text-primary">Termos</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+    <div class="mt-12 pt-8 border-t text-center text-sm opacity-40">
+      <p>&copy; {year} Escolha Oferta. Todos os direitos reservados.</p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  footer {
+    background: rgba(15, 23, 42, 0.5);
+  }
+  .max-w-sm { max-width: 24rem; }
+  .mt-12 { margin-top: 3rem; }
+  .pt-8 { padding-top: 2rem; }
+  .mt-20 { margin-top: 5rem; }
+  .py-12 { padding-top: 3rem; padding-bottom: 3rem; }
+</style>

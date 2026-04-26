@@ -1,11 +1,111 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Navbar from '../components/Navbar';
+import CookieConsent from '../components/CookieConsent';
+import OfferCard from '../components/OfferCard';
+import Footer from '../components/Footer.astro';
+import { offers } from '../data/offers';
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="Escolha Oferta | As Melhores Promoções de Ferramentas">
+	<Navbar client:load />
+	
+	<main>
+		{/* Hero Section */}
+		<section class="hero min-h-screen flex items-center pt-20">
+			<div class="container animate-fade-in">
+				<div class="max-w-2xl">
+					<span class="bg-primary/20 text-primary px-4 py-1 rounded-full text-sm font-bold mb-4 inline-block">
+						Novas Ofertas Todos os Dias
+					</span>
+					<h1 class="text-6xl font-bold mb-6 leading-tight">
+						Economize de verdade nas <span class="text-primary">melhores ferramentas</span> do mercado
+					</h1>
+					<p class="text-xl opacity-80 mb-10">
+						Curadoria exclusiva das promoções mais quentes da Amazon e grandes lojas. 
+						Não perca tempo procurando, nós fazemos o trabalho pesado por você.
+					</p>
+					<div class="flex gap-4">
+						<a href="#ofertas" class="bg-primary hover:bg-primary-hover px-10 py-4 rounded-full font-bold text-lg transition-all shadow-lg shadow-primary/30">
+							Explorar Ofertas
+						</a>
+						<a href="/sobre" class="glass px-10 py-4 rounded-full font-bold text-lg transition-all hover:bg-white/5">
+							Saiba Mais
+						</a>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		{/* Offers Grid */}
+		<section id="ofertas" class="py-20 bg-slate-900/50">
+			<div class="container">
+				<div class="flex justify-between items-end mb-12">
+					<div>
+						<h2 class="text-4xl font-bold mb-2">Ofertas em Destaque</h2>
+						<p class="opacity-60">As promoções que você não pode deixar passar hoje.</p>
+					</div>
+				</div>
+
+				<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+					{offers.map((offer) => (
+						<OfferCard {...offer} client:visible />
+					))}
+				</div>
+			</div>
+		</section>
+
+		{/* CTA Section */}
+		<section class="py-20">
+			<div class="container">
+				<div class="glass p-12 text-center flex flex-col items-center gap-6 relative overflow-hidden">
+					<div class="absolute -top-24 -left-24 w-64 h-64 bg-primary/20 rounded-full blur-3xl"></div>
+					<div class="absolute -bottom-24 -right-24 w-64 h-64 bg-accent/10 rounded-full blur-3xl"></div>
+					
+					<h2 class="text-4xl font-bold">Quer receber ofertas no seu WhatsApp?</h2>
+					<p class="text-xl opacity-70 max-w-xl">
+						Participe do nosso grupo exclusivo e receba em primeira mão 
+						os cupons e descontos que esgotam rápido.
+					</p>
+					<a href="#" class="bg-[#25D366] hover:bg-[#128C7E] px-12 py-4 rounded-full font-bold text-lg transition-all flex items-center gap-3">
+						Entrar no Grupo VIP
+					</a>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<Footer />
+	<CookieConsent client:only="react" />
 </Layout>
+
+<style>
+	.hero {
+		background: radial-gradient(circle at 70% 30%, rgba(139, 92, 246, 0.15) 0%, transparent 50%),
+		            radial-gradient(circle at 10% 80%, rgba(244, 63, 94, 0.05) 0%, transparent 40%);
+	}
+	.min-h-screen { min-height: 100vh; }
+	.pt-20 { padding-top: 5rem; }
+	.py-20 { padding-top: 5rem; padding-bottom: 5rem; }
+	.mb-4 { margin-bottom: 1rem; }
+	.mb-6 { margin-bottom: 1.5rem; }
+	.mb-10 { margin-bottom: 2.5rem; }
+	.mb-12 { margin-bottom: 3rem; }
+	.text-6xl { font-size: 3.75rem; }
+	.text-4xl { font-size: 2.25rem; }
+	.max-w-2xl { max-width: 42rem; }
+	.max-w-xl { max-width: 36rem; }
+	.leading-tight { line-height: 1.25; }
+	.bg-primary\/20 { background-color: rgba(139, 92, 246, 0.2); }
+	.shadow-lg { box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); }
+	.shadow-primary\/30 { box-shadow: 0 10px 30px -5px rgba(139, 92, 246, 0.3); }
+	.inline-block { display: inline-block; }
+	.grid { display: grid; }
+	.grid-cols-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
+	@media (min-width: 768px) {
+		.md\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+	}
+	@media (min-width: 1024px) {
+		.lg\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+	}
+</style>
