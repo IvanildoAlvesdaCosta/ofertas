@@ -16,6 +16,40 @@ const getLink = (id: string) => {
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Global site tag (gtag.js) - Google Ads: AW-18123671388 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18123671388"></script>
+  <script is:inline>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-18123671388');
+  </script>
+
+  <!-- Event snippet for conversion -->
+  <script is:inline>
+  let conversionFired = false;
+  function gtag_report_conversion(url) {
+    if (conversionFired) {
+      if (typeof(url) != 'undefined') {
+        window.location = url;
+      }
+      return false;
+    }
+    conversionFired = true;
+    var callback = function () {
+      if (typeof(url) != 'undefined') {
+        window.location = url;
+      }
+    };
+    gtag('event', 'conversion', {
+        'send_to': 'AW-18123671388/QpoiCLGc4qMcENyOhcJD',
+        'event_callback': callback
+    });
+    return false;
+  }
+  </script>
+
   <style>
     /* Resets and Mobile-First Base */
     :root {
@@ -235,7 +269,13 @@ const getLink = (id: string) => {
         <li>✔️ Ótima opção para presente</li>
       </ul>
 
-      <a href={getLink("Kit Rock Faca + Tabua Doma Crioula 8 Churrasco Cozinha Acdc")} class="cta-button pulse-animation" target="_blank" rel="noopener noreferrer">
+      <a 
+        href={getLink("Kit Rock Faca + Tabua Doma Crioula 8 Churrasco Cozinha Acdc")} 
+        class="cta-button pulse-animation" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        onclick={`return gtag_report_conversion('${getLink("Kit Rock Faca + Tabua Doma Crioula 8 Churrasco Cozinha Acdc")}')`}
+      >
         🛒 Ver oferta disponível
       </a>
     </div>
@@ -254,7 +294,13 @@ const getLink = (id: string) => {
         <li>✔️ Boa para uso frequente</li>
       </ul>
 
-      <a href={getLink("Faca Artesanal 10 Doma Crioula Cabo Escorpião Luxo Oferta")} class="cta-button pulse-animation" target="_blank" rel="noopener noreferrer">
+      <a 
+        href={getLink("Faca Artesanal 10 Doma Crioula Cabo Escorpião Luxo Oferta")} 
+        class="cta-button pulse-animation" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        onclick={`return gtag_report_conversion('${getLink("Faca Artesanal 10 Doma Crioula Cabo Escorpião Luxo Oferta")}')`}
+      >
         🛒 Conferir disponibilidade
       </a>
     </div>
@@ -273,7 +319,13 @@ const getLink = (id: string) => {
         <li>✔️ Ideal para uso doméstico</li>
       </ul>
 
-      <a href={getLink("Faca Picanheira 8 Doma Crioula Sniper Dourada")} class="cta-button pulse-animation" target="_blank" rel="noopener noreferrer">
+      <a 
+        href={getLink("Faca Picanheira 8 Doma Crioula Sniper Dourada")} 
+        class="cta-button pulse-animation" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        onclick={`return gtag_report_conversion('${getLink("Faca Picanheira 8 Doma Crioula Sniper Dourada")}')`}
+      >
         🛒 Ver detalhes
       </a>
     </div>
