@@ -22,17 +22,13 @@ const OfferCard: React.FC<OfferProps> = ({ title, description, price, oldPrice, 
       <div className="p-6 flex flex-col flex-1 gap-3">
         <h3 className="text-xl font-bold">{title}</h3>
         <p className="text-sm opacity-70 flex-1">{description}</p>
-        <div className="flex items-center gap-3">
-          <span className="text-2xl font-bold text-primary">{price}</span>
-          <span className="text-sm opacity-50 line-through">{oldPrice}</span>
-        </div>
         <a 
           href={link} 
           target="_blank" 
           rel="noopener noreferrer"
           className="bg-primary hover:bg-primary-hover text-center py-3 rounded-xl font-bold transition-all mt-2"
         >
-          Ver Preço na Amazon
+          Ver Preço
         </a>
       </div>
     </div>
